@@ -31,10 +31,11 @@ export function PerformanceGraph({ title, data, unit, color }: PerformanceGraphP
             <Tooltip
               content={({ active, payload }) => {
                 if (active && payload && payload.length) {
+                  const value = payload[0].value as number;
                   return (
                     <div className="bg-gaming-background p-2 rounded border border-gaming-accent/20">
                       <p className="text-gaming-text">
-                        {payload[0].value.toFixed(1)} {unit}
+                        {value.toFixed(1)} {unit}
                       </p>
                     </div>
                   );
