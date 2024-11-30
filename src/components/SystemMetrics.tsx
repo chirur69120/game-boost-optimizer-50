@@ -1,4 +1,4 @@
-import { Cpu, Ram, HardDrive, MonitorSmartphone } from "lucide-react";
+import { Cpu, MemoryStick, HardDrive, MonitorSmartphone } from "lucide-react";
 import { MetricCard } from "./MetricCard";
 import { PerformanceGraph } from "./PerformanceGraph";
 import { useSystemMetrics } from "@/hooks/useSystemMetrics";
@@ -19,7 +19,7 @@ export function SystemMetrics() {
           title="RAM Usage"
           value={metrics.ram.usage}
           unit="%"
-          icon={<Ram className="h-6 w-6" />}
+          icon={<MemoryStick className="h-6 w-6" />}
         />
         <MetricCard
           title="GPU Usage"
