@@ -15,15 +15,15 @@ function createWindow() {
     }
   });
 
-  // En production, on charge le fichier index.html depuis le dossier dist
+  // En production, charge le fichier index.html depuis le dossier dist
   if (process.env.NODE_ENV === 'production') {
     win.loadFile(path.join(__dirname, '../dist/index.html'));
   } else {
-    // En développement, on se connecte au serveur de développement Vite
+    // En développement, se connecte au serveur de développement Vite
     win.loadURL('http://localhost:5173');
   }
 
-  // Ouvrir les outils de développement en mode développement
+  // Ouvre les outils de développement en mode développement
   if (process.env.NODE_ENV !== 'production') {
     win.webContents.openDevTools();
   }
