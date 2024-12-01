@@ -16,10 +16,109 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
+const optimizationCategories = [
+  {
+    icon: Zap,
+    title: "Boost Performance",
+    tweaks: "500+ tweaks",
+    color: "text-gaming-accent",
+    message: "Optimisation des performances lancée",
+    description: "Application de 500+ tweaks d'amélioration des performances..."
+  },
+  {
+    icon: Shield,
+    title: "Optimiser Sécurité",
+    tweaks: "200+ tweaks",
+    color: "text-gaming-secondary",
+    message: "Optimisation de la sécurité lancée",
+    description: "Application de 200+ tweaks de sécurité..."
+  },
+  {
+    icon: Cpu,
+    title: "Boost CPU/GPU",
+    tweaks: "300+ tweaks",
+    color: "text-gaming-accent",
+    message: "Optimisation CPU/GPU lancée",
+    description: "Application de 300+ tweaks d'optimisation CPU/GPU..."
+  },
+  {
+    icon: Network,
+    title: "Optimiser Réseau",
+    tweaks: "150+ tweaks",
+    color: "text-gaming-secondary",
+    message: "Optimisation réseau lancée",
+    description: "Application de 150+ tweaks réseau..."
+  },
+  {
+    icon: Gamepad,
+    title: "Mode Gaming",
+    tweaks: "100+ tweaks",
+    color: "text-gaming-accent",
+    message: "Mode gaming activé",
+    description: "Application de 100+ tweaks gaming..."
+  },
+  {
+    icon: Monitor,
+    title: "Optimiser Affichage",
+    tweaks: "75+ tweaks",
+    color: "text-gaming-secondary",
+    message: "Optimisation affichage lancée",
+    description: "Application de 75+ tweaks d'affichage..."
+  },
+  {
+    icon: HardDrive,
+    title: "Boost Disque",
+    tweaks: "100+ tweaks",
+    color: "text-gaming-accent",
+    message: "Optimisation disque lancée",
+    description: "Application de 100+ tweaks disque..."
+  },
+  {
+    icon: CircuitBoard,
+    title: "Optimiser RAM",
+    tweaks: "75+ tweaks",
+    color: "text-gaming-secondary",
+    message: "Optimisation RAM lancée",
+    description: "Application de 75+ tweaks mémoire..."
+  },
+  {
+    icon: Fan,
+    title: "Gestion Thermique",
+    tweaks: "50+ tweaks",
+    color: "text-gaming-accent",
+    message: "Optimisation thermique lancée",
+    description: "Application de 50+ tweaks thermiques..."
+  },
+  {
+    icon: Settings,
+    title: "Windows Tweaks",
+    tweaks: "100+ tweaks",
+    color: "text-gaming-secondary",
+    message: "Optimisation Windows lancée",
+    description: "Application de 100+ tweaks Windows..."
+  },
+  {
+    icon: Wifi,
+    title: "Latence Réseau",
+    tweaks: "50+ tweaks",
+    color: "text-gaming-accent",
+    message: "Optimisation latence lancée",
+    description: "Application de 50+ tweaks de latence..."
+  },
+  {
+    icon: Battery,
+    title: "Mode Batterie",
+    tweaks: "50+ tweaks",
+    color: "text-gaming-secondary",
+    message: "Mode batterie activé",
+    description: "Application de 50+ tweaks d'économie d'énergie..."
+  }
+];
+
 export function OptimizationPanel() {
-  const handleOptimize = () => {
-    toast.success("Optimisation lancée", {
-      description: "1500+ optimisations système sont en cours d'application...",
+  const handleOptimize = (category: typeof optimizationCategories[0]) => {
+    toast.success(category.message, {
+      description: category.description,
     });
   };
 
@@ -27,138 +126,20 @@ export function OptimizationPanel() {
     <Card className="p-6 bg-gaming-card border-gaming-accent/20">
       <h2 className="text-xl font-bold text-gaming-text mb-4">Optimisations Rapides (1500+ tweaks)</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Zap className="h-6 w-6 text-gaming-accent" />
-            <span className="text-gaming-text">Boost Performance</span>
-            <span className="text-xs text-gaming-text/60">500+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Shield className="h-6 w-6 text-gaming-secondary" />
-            <span className="text-gaming-text">Optimiser Sécurité</span>
-            <span className="text-xs text-gaming-text/60">200+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Cpu className="h-6 w-6 text-gaming-accent" />
-            <span className="text-gaming-text">Boost CPU/GPU</span>
-            <span className="text-xs text-gaming-text/60">300+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Network className="h-6 w-6 text-gaming-secondary" />
-            <span className="text-gaming-text">Optimiser Réseau</span>
-            <span className="text-xs text-gaming-text/60">150+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Gamepad className="h-6 w-6 text-gaming-accent" />
-            <span className="text-gaming-text">Mode Gaming</span>
-            <span className="text-xs text-gaming-text/60">100+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Monitor className="h-6 w-6 text-gaming-secondary" />
-            <span className="text-gaming-text">Optimiser Affichage</span>
-            <span className="text-xs text-gaming-text/60">75+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <HardDrive className="h-6 w-6 text-gaming-accent" />
-            <span className="text-gaming-text">Boost Disque</span>
-            <span className="text-xs text-gaming-text/60">100+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <CircuitBoard className="h-6 w-6 text-gaming-secondary" />
-            <span className="text-gaming-text">Optimiser RAM</span>
-            <span className="text-xs text-gaming-text/60">75+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Fan className="h-6 w-6 text-gaming-accent" />
-            <span className="text-gaming-text">Gestion Thermique</span>
-            <span className="text-xs text-gaming-text/60">50+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Settings className="h-6 w-6 text-gaming-secondary" />
-            <span className="text-gaming-text">Windows Tweaks</span>
-            <span className="text-xs text-gaming-text/60">100+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Wifi className="h-6 w-6 text-gaming-accent" />
-            <span className="text-gaming-text">Latence Réseau</span>
-            <span className="text-xs text-gaming-text/60">50+ tweaks</span>
-          </div>
-        </Button>
-        <Button
-          variant="outline"
-          className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
-          onClick={handleOptimize}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <Battery className="h-6 w-6 text-gaming-secondary" />
-            <span className="text-gaming-text">Mode Batterie</span>
-            <span className="text-xs text-gaming-text/60">50+ tweaks</span>
-          </div>
-        </Button>
+        {optimizationCategories.map((category, index) => (
+          <Button
+            key={index}
+            variant="outline"
+            className="h-auto py-4 px-6 bg-gaming-background hover:bg-gaming-accent/10 border-gaming-accent/20"
+            onClick={() => handleOptimize(category)}
+          >
+            <div className="flex flex-col items-center gap-2">
+              <category.icon className={`h-6 w-6 ${category.color}`} />
+              <span className="text-gaming-text">{category.title}</span>
+              <span className="text-xs text-gaming-text/60">{category.tweaks}</span>
+            </div>
+          </Button>
+        ))}
       </div>
     </Card>
   );
