@@ -15,21 +15,24 @@ function createWindow() {
     }
   });
 
-  // En mode production, charge le fichier index.html depuis le dossier dist
+  console.log('Current working directory:', process.cwd());
+  console.log('__dirname:', __dirname);
+
   if (app.isPackaged) {
-    win.loadFile(path.join(process.cwd(), 'dist', 'index.html'))
+    const indexPath = path.join(__dirname, '..', 'dist', 'index.html');
+    console.log('Loading production path:', indexPath);
+    win.loadFile(indexPath)
       .catch(err => {
-        console.error('Erreur lors du chargement de index.html:', err);
+        console.error('Error loading index.html:', err);
       });
   } else {
-    // En mode développement, charge depuis le serveur Vite
+    console.log('Loading development URL');
     win.loadURL('http://localhost:5173')
       .catch(err => {
-        console.error('Erreur lors de la connexion au serveur de développement:', err);
+        console.error('Error connecting to dev server:', err);
       });
   }
 
-  // Ouvre les outils de développement en mode développement
   if (!app.isPackaged) {
     win.webContents.openDevTools();
   }
