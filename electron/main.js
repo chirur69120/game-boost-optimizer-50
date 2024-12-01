@@ -20,11 +20,11 @@ function createWindow() {
     win.loadFile(path.join(__dirname, '../dist/index.html'));
   } else {
     // En développement, on se connecte au serveur de développement Vite
-    win.loadURL('http://localhost:8080');
+    win.loadURL('http://localhost:5173');
   }
 
   // Ouvrir les outils de développement en mode développement
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV !== 'production') {
     win.webContents.openDevTools();
   }
 }
@@ -40,7 +40,7 @@ app.whenReady().then(() => {
 });
 
 app.on('window-all-closed', () => {
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.platform !== 'darwin') {
     app.quit();
   }
 });
