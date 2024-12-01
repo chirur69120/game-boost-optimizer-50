@@ -6,6 +6,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 function createWindow() {
+  console.log('Création de la fenêtre principale...');
+  
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -15,17 +17,23 @@ function createWindow() {
     }
   });
 
-  // En mode production, charge le fichier index.html depuis le dossier dist
+  console.log('Mode application:', app.isPackaged ? 'Production' : 'Développement');
+  
   if (app.isPackaged) {
-    win.loadFile(path.join(__dirname, '../dist/index.html'));
+    const indexPath = path.join(__dirname, '../dist/index.html');
+    console.log('Chargement du fichier:', indexPath);
+    win.loadFile(indexPath).catch(err => {
+      console.error('Erreur de chargement de index.html:', err);
+    });
   } else {
-    // En mode développement, se connecte au serveur Vite
+    console.log('Connexion au serveur de développement Vite...');
     win.loadURL('http://localhost:5173');
     win.webContents.openDevTools();
   }
 }
 
 app.whenReady().then(() => {
+  console.log('Application prête, création de la fenêtre...');
   createWindow();
 
   app.on('activate', () => {
