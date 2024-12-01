@@ -1,0 +1,16 @@
+{
+  "appId": "com.gameoptimizer.app",
+  "productName": "Game Boost Optimizer",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "electron/**/*",
+    "node_modules/**/*",
+    "package.json"
+  ],
+  "win": {
+    "target": "nsis"
+  }
+}
