@@ -8,7 +8,7 @@ import {
   Gamepad,
   Monitor,
   HardDrive,
-  Memory,
+  CircuitBoard,
   Fan,
   Settings,
   Wifi,
@@ -110,7 +110,7 @@ export function OptimizationPanel() {
           onClick={handleOptimize}
         >
           <div className="flex flex-col items-center gap-2">
-            <Memory className="h-6 w-6 text-gaming-secondary" />
+            <CircuitBoard className="h-6 w-6 text-gaming-secondary" />
             <span className="text-gaming-text">Optimiser RAM</span>
             <span className="text-xs text-gaming-text/60">75+ tweaks</span>
           </div>
